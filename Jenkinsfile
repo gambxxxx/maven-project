@@ -27,13 +27,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "cp **/target/*.war ec2-user@${params.tomcat_dev}:/home/petar/Documents/apache-tomcat-8.5.29-staging/webapps"
+                        sh "cp -i **/target/*.war ec2-user@${params.tomcat_dev}:/home/petar/Documents/apache-tomcat-8.5.29-staging/webapps"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "cp **/target/*.war ec2-user@${params.tomcat_prod}:/home/petar/Documents/apache-tomcat-8.5.29-prod/webapps"
+                        sh "cp -i **/target/*.war ec2-user@${params.tomcat_prod}:/home/petar/Documents/apache-tomcat-8.5.29-prod/webapps"
                     }
                 }
             }
