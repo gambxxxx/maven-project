@@ -22,6 +22,11 @@ stages{
                 }
             }
         }
+                stage ('Test'){
+                    steps{
+                        sh 'make check'
+                    }
+                }
 
                 stage ('Deploy to Staging'){
                     steps {
