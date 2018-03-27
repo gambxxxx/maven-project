@@ -29,7 +29,7 @@ stages{
                 stage ('Deploy to Staging'){
                     steps {
                         sh "cp  **/target/*.war /home/petar/Documents/apache-tomcat-8.5.29-staging/webapps"
-                    }e
+                    }
                 }
                 stage('Sanity check'){
                     steps{
