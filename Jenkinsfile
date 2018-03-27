@@ -36,5 +36,4 @@ stages{
                     }
                 }
     }
-    def causes = currentBuild.rawBuild.getCauses()
 }
