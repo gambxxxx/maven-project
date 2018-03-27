@@ -20,11 +20,7 @@ stages{
                 }
             }
         }
-                stage ('Test'){
-                    steps{
-                        sh 'make check ||true'
-                        junit '**/target/*.xml'
-                    }
+
                 }
                 stage ('Deploy to Staging'){
                     steps {
@@ -41,13 +37,5 @@ stages{
                         sh "cp  **/target/*.war /home/petar/Documents/apache-tomcat-8.5.29-prod/webapps"
                     }
                 }
-    }
-}
-// Script //
-
-node {
-    stage('Test'){
-        sh 'make check || true'
-        junit '**/target/*.xml'
     }
 }
