@@ -24,7 +24,7 @@ stages{
                 stage ('Test'){
                     steps{
                         sh 'make check || true'
-                        junit '**/target/*.xml /home/petar'
+                        junit '**/target/*.xml'
                     }
                 }
                 stage ('Deploy to Staging'){
@@ -50,7 +50,7 @@ node {
     stage('Test'){
         steps{
             sh 'make check || true'
-            junit'**/target*/.xml /home/petar'
+            junit'**/target*/.xml'
         }
     }
 }
