@@ -1,9 +1,10 @@
 pipeline {
     agent any
     parameters {
-         string(name: 'tomcat_dev', defaultValue: '127.0.0.1:9080', description: 'Staging Server')
-         string(name: 'tomcat_prod', defaultValue: '127.0.0.1:8090', description: 'Production Server')
+         string(name: 'DEPLOY_ENV', defaultValue: '127.0.0.1:9080', description: 'Staging Server')
+         string(name: 'DEPLOY_ENV', defaultValue: '127.0.0.1:8090', description: 'Production Server')
     }
+
 
     triggers {
          pollSCM('* * * * *')
@@ -35,5 +36,5 @@ stages{
                         sh "cp  **/target/*.war /home/petar/Documents/apache-tomcat-8.5.29-prod/webapps"
                     }
                 }
-    }
+      }
 }
