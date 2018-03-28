@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     /*parameters {
-         string(name: 'STAGING_ENV', defaultValue: '127.0.0.1:9080', description: 'Staging Server')
-         string(name: 'PROD_ENV', defaultValue: '127.0.0.1:8090', description: 'Production Server')
+         string(name: 'dev', defaultValue: 'dev', description: 'Dev Server')
+         string(name: 'test', defaultValue: 'test', description: 'Test Server')
     }*/
     triggers {
          pollSCM('*/5 * * * *')
@@ -37,9 +37,9 @@ stages{
                     }
                 }
                 */
-                stage ("Deploy to Test"){
+                stage ("Deploy to Environment"){
                     steps {
-                        sh "cp  **/target/*.war /home/petar/Documents/tomcat-test/webapps"
+                        sh "cp  **/target/*.war /home/petar/Documents/tomcat-$params.Environment/webapps"
                     }
                 }
       }
