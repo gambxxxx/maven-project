@@ -1,12 +1,12 @@
 pipeline {
     agent any
 
-    parameters {
+    /*parameters {
          string(name: 'STAGING_ENV', defaultValue: '127.0.0.1:9080', description: 'Staging Server')
          string(name: 'PROD_ENV', defaultValue: '127.0.0.1:8090', description: 'Production Server')
-    }
+    }*/
     triggers {
-         pollSCM('* * * * *')
+         pollSCM('*/5 * * * *')
      }
 stages{
         stage('Build'){
