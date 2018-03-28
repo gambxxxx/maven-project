@@ -20,19 +20,26 @@ stages{
                 }
             }
         }
+        /*
                 stage ('Deploy to Staging'){
                     steps {
                         sh "cp  **/target/*.war /home/petar/Documents/apache-tomcat-8.5.29-staging/webapps"
                     }
                 }
-                /*stage('Sanity check'){
+                stage('Sanity check'){
                     steps{
                       input "Does the staging environment look OK?"
                     }
-                }*/
+                }
                 stage ("Deploy to Production"){
                     steps {
                         sh "cp  **/target/*.war /home/petar/Documents/apache-tomcat-8.5.29-prod/webapps"
+                    }
+                }
+                */
+                stage ("Deploy to Test"){
+                    steps {
+                        sh "cp  **/target/*.war /home/petar/Documents/tomcat-test/webapps"
                     }
                 }
       }
