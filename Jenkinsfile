@@ -1,5 +1,7 @@
 pipeline {
     agent any
+    def staging_server='127.0.0.1:9080'
+    def prodcution_server='127.0.0.1:8090'
     parameters {
          string(name: 'DEPLOY_ENV', defaultValue: '127.0.0.1:9080', description: 'Staging Server')
          string(name: 'DEPLOY_ENV', defaultValue: '127.0.0.1:8090', description: 'Production Server')
